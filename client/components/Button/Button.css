@@ -13,17 +13,9 @@
     margin-left: calc($base-spacing * 2);
     box-shadow: $button-shadow;
   }
-  &.homepageClickDisable {
-    font-size: 1.6em;
-    padding: 0 calc($base-spacing * 2);
+  &.disable {
     cursor: pointer;
-    background: url('/assets/spaguetti.svg') no-repeat center center;
     background-color: $grey;
-    height: 4rem;
-    border-radius: 4rem;
-    background-size: 60%;
-    margin-left: calc($base-spacing * 2);
-    box-shadow: $button-shadow;
     pointer-events: none;
   }
 }

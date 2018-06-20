@@ -7,6 +7,7 @@ import placeActions from 'actions/placeActions';
 import conditionActions from 'actions/conditionActions';
 import Place from 'components/Place/Place';
 import Condition from 'components/Condition/Condition';
+import Filter from 'components/Filter/Filter';
 
 class HomePage extends Component {
   handleOnClick = () => {
@@ -16,14 +17,20 @@ class HomePage extends Component {
   handleOnConditionChange = (value) => {
     this.props.setRadius(value);
   }
+
+  handleOnFilterSelection = (value) => {
+    this.props.setPrice(value);
+  }
+
   render() {
     const { condition, place } = this.props;
     return (
       <div className="homePageWrapper">
         <Place place={place} />
         <div className="searchWrapper">
-          <Condition condition={condition} action={this.handleOnConditionChange}/>
-          <Button onClick={this.handleOnClick} theme={(Object.keys(condition)).some(v => ['latitude', 'longitude'].includes(v)) ? 'homepageClick' : 'homepageClickDisable'} />
+          <Filter action={this.handleOnFilterSelection} />
+          <Condition condition={condition} action={this.handleOnConditionChange} />
+          <Button onClick={this.handleOnClick} theme={'homepageClick'} disabled={!(Object.keys(condition)).some(v => ['latitude', 'longitude'].includes(v))} />
         </div>
       </div>
     );
@@ -39,6 +46,7 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators({
     fetchPlaces: placeActions.fetchPlaces,
     setRadius: conditionActions.setRadius,
+    setPrice: conditionActions.setPrice,
   }, dispatch);
 
 HomePage.propTypes = {
@@ -46,6 +54,7 @@ HomePage.propTypes = {
   place: PropTypes.object,
   fetchPlaces: PropTypes.func,
   setRadius: PropTypes.func,
+  setPrice: PropTypes.func,
 };
 export default connect(
   mapStateToProps,
