@@ -41,6 +41,7 @@ export function fromSearchPlacesDetailsParams(params) {
     categories: params.categories ? params.categories.map(c => c.title) : null,
     reviewCount: params.review_count,
     photos: params.photos,
+    coordinates: params.coordinates,
   };
   return result;
 }

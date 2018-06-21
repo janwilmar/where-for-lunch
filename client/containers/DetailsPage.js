@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import placeActions from 'actions/placeActions';
 import PlaceDetails from 'components/PlaceDetails/PlaceDetails';
+import PlaceMap from 'components/PlaceMap/PlaceMap';
 
 
 class DetailsPage extends Component {
@@ -17,6 +18,7 @@ class DetailsPage extends Component {
       <div className="homePageWrapper">
         <PlaceDetails place={place} />
         <div className="searchWrapper">
+          <PlaceMap place={place} />
         </div>
       </div>
     );
