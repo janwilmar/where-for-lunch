@@ -7,7 +7,7 @@ import placeActions from 'actions/placeActions';
 import conditionActions from 'actions/conditionActions';
 import Place from 'components/Place/Place';
 import Condition from 'components/Condition/Condition';
-import Filter from 'components/Filter/Filter';
+// import Filter from 'components/Filter/Filter';
 
 class HomePage extends Component {
   handleOnClick = () => {
@@ -28,8 +28,8 @@ class HomePage extends Component {
       <div className="homePageWrapper">
         <Place place={place} />
         <div className="searchWrapper">
-          <Filter action={this.handleOnFilterSelection} />
-          <Condition condition={condition} action={this.handleOnConditionChange} />
+          {/* <Filter action={this.handleOnFilterSelection} /> */}
+          <Condition condition={condition} action={this.handleOnConditionChange} actionChange={this.handleOnFilterSelection} />
           <Button onClick={this.handleOnClick} theme={'homepageClick'} disabled={!(Object.keys(condition)).some(v => ['latitude', 'longitude'].includes(v))} />
         </div>
       </div>

@@ -1,13 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import styles from './Place.css';
+import styles from './PlaceDetails.css';
 
-const Place = ({ place }) => {
+const PlaceDetails = ({ place }) => {
+  let photos = null;
+  const phts = place.photos;
+  if (phts) {
+    photos = phts.map((img, idx) => {
+      return <img key={idx} src={img} className={styles.morePhotos} />;
+    });
+  }
   return (
     <div className={styles.root}>
-      <div className={styles.name}>{ place.name || 'Where for lunch?' }</div>
+      <div className={styles.name}>{ place.name }</div>
       <div className={styles.box}>
+        <div>
+          {place.img && <img src={place.img} className={styles.mainImg} />}
+        </div>
         <div>{ place.address }</div>
         <div>{ place.phone }</div>
         <div>{ place.categories && place.categories.join(', ') }</div>
@@ -21,18 +30,14 @@ const Place = ({ place }) => {
           </div>
         </div>
         }
-        { place.id &&
-        <div className={styles.more}>
-          <Link to={`/place/${place.id}`}>More...</Link>
-        </div>
-        }
+        <div>{ photos }</div>
       </div>
     </div>
   );
 };
 
-Place.propTypes = {
+PlaceDetails.propTypes = {
   place: PropTypes.object,
 };
 
-export default Place;
+export default PlaceDetails;

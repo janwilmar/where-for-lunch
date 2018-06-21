@@ -19,3 +19,8 @@ test('With Jest snapshot, Place component renders rating section when present', 
     .toJSON();
   expect(placeComponent).toMatchSnapshot();
 });
+
+test('Test check if lat long exists', () => {
+  const place = { latitude: 1.23456789, longitude: 9.87654321, radius: 500 };
+  expect((Object.keys(place)).some(v => ['latitude', 'longitude'].includes(v))).toBe(true);
+});

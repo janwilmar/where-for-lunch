@@ -47,4 +47,17 @@
   .more {
     float: right;
   }
+  .mainImg {
+    float: left;
+    width: 30%;
+    padding-right: 10px;
+  }
+  .morePhotos {
+    width: 15%;
+    padding: 10px 5px;
+    transition: transform .2s;
+  }
+  .morePhotos:hover {
+    transform: scale(2);
+  }
 }

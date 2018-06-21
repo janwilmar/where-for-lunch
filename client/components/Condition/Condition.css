@@ -2,4 +2,12 @@
   > span, > div {
     display: inline;
   }
+  > ul {
+    display: inline-flex;
+    list-style: none;
+
+    > li {
+      margin-right: 5px;
+    }
+  }
 }
