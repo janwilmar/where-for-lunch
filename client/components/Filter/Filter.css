@@ -1,0 +1,10 @@
+@import '../../styles/variables.css';
+
+.root {
+    > ul {
+        list-style: none;
+    }
+    > li {
+       display: inline;
+    }
+}
